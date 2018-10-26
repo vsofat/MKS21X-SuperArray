@@ -38,6 +38,17 @@ public boolean add(String str){
   /* Appends the specified element to the end of this list.
   Returns true. Should resize the list before adding if there is no more space. */
 }
+public String toString(){
+String result = "[]"
+for (int i = 0; i < this.data.length - 1; i++){
+  result += data[x] + ", ";
+}
+if (size() > 0){
+  result += data[(size())-1];
+  return result;
+}
+  // Returns the data in the format: "[A, B, FISH, cat, Dog]" Without double quotes around the data elements.
+}
 public String get(int index){
   if (index < 0 || index >= size){
     return null;} // combine commented out code into one line
@@ -52,6 +63,7 @@ public String get(int index){
   }
   // Returns the element at the specified position in this list. Prints an error when index is out of range.
 }
+// mutator
 public String	set(int index, String value){
   if (index < 0 || index >= size){
     return null;
@@ -64,4 +76,5 @@ public String	set(int index, String value){
   /* Replaces the element at the specified position in this list with the specified element, returns the old element.
      Prints an error when index is out of range. */
 }
+//
 }
