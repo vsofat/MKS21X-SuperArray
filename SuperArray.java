@@ -52,4 +52,16 @@ public String get(int index){
   }
   // Returns the element at the specified position in this list. Prints an error when index is out of range.
 }
+public String	set(int index, String value){
+  if (index < 0 || index >= size){
+    return null;
+  }
+  else{
+    String str = data[index];
+    data[index] = value;
+    return str;
+  }
+  /* Replaces the element at the specified position in this list with the specified element, returns the old element.
+     Prints an error when index is out of range. */
+}
 }
