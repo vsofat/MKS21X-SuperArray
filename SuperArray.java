@@ -35,7 +35,21 @@ public boolean add(String str){
     size = size + 1;
   }
   return true;
-  /*Appends the specified element to the end of this list.
+  /* Appends the specified element to the end of this list.
   Returns true. Should resize the list before adding if there is no more space. */
+}
+public String get(int index){
+  if (index < 0 || index >= size){
+    return null;} // combine commented out code into one line
+  /*if (index < 0){
+    return null; // error message
+  }
+  else if (index >= size){
+    return null; // error message */
+  }
+  else{
+    return data[index];
+  }
+  // Returns the element at the specified position in this list. Prints an error when index is out of range.
 }
 }
