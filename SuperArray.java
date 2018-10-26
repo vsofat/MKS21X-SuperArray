@@ -90,6 +90,7 @@ public String	set(int index, String value){
   /* Replaces the element at the specified position in this list with the specified element, returns the old element.
      Prints an error when index is out of range. */
 }
+// PHASE 2
 private void resize() {
     String[] Ary = new String[this.size];
     for(int i = 0; i < this.size; i++) {
@@ -102,6 +103,7 @@ private void resize() {
     /* This is a private method that you call when you need more space.
        It will increase the capacity by making a new Array of Strings and copying the old one over. */
   }
+// PHASE 3
 public boolean contains(String target){
   for (int i = 0; i < this.size; i++){
     if (data[i].equals(target){
@@ -112,3 +114,25 @@ public boolean contains(String target){
     }
     // Returns true if this list contains the specified element.
   }}
+  public int indexOf(String target) {
+    for (int ind = 0; ind < size(); ind ++) {
+      if (data[x].equals(target)){
+      return ind; // first occurence from front
+    }
+    }
+    return -1; // if there is no occurence
+  }
+  public int lastIndexOf(String target) {
+    for (int ind = size() - 1; ind >= 0; ind --) {
+      if (data[x].equals(target)){
+        return x; // first occurence from back 
+    }
+    return -1; // if there is no occurence
+  }
+  public void	add(int index, String element){
+
+    /* All elements at the index or to the right, are shifted to the right to make space,
+       then insert the specified element at the specified position in this list. Prints an error when index is out of range. */
+  }
+
+  }
