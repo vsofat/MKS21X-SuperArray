@@ -4,7 +4,7 @@ public class SuperArray{
 	private int size;
   // constructor
 	public SuperArray(){
-		data = new String[10];
+		data = new String[10]; // couldn't clear replace this?
 	}
   // accessors
  public void clear(){
@@ -25,4 +25,17 @@ public boolean isEmpty(){
     return false;
   }
   // Returns true if this list contains no elements.
+}
+public boolean add(String str){
+  if (this.size == data.length){
+    resize();
+  }
+  else {
+    data[size] = str;
+    size = size + 1;
+  }
+  return true;
+  /*Appends the specified element to the end of this list.
+  Returns true. Should resize the list before adding if there is no more space. */
+}
 }
