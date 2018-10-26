@@ -106,9 +106,9 @@ public boolean contains(String target){
   for (int i = 0; i < this.size; i++){
     if (data[i].equals(target){
       return true;
-    }  
+    }
+    else{
+      return false;
+    }
     // Returns true if this list contains the specified element.
-
-  }
-}
-}
+  }}
