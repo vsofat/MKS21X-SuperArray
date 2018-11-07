@@ -4,13 +4,13 @@ public class SuperArray {
   private int size;
   // constructor
   public SuperArray() {
-    clear(); // couldn't clear replace this?
+    clear();
   }
   public SuperArray(int size) {
     if (size < 0) {
       throw new IllegalArgumentException("ERROR: given value of size is negative");
     }
-    this.data = new String[size]; // couldn't clear replace this?
+    this.data = new String[size]; // same as clear
   }
   // accessors
   public void clear() {
@@ -30,7 +30,8 @@ public class SuperArray {
     if (this.size < data.length) {
       data[size] = str;
       size++;
-    } else {
+    }
+    else {
       resize();
       data[size] = str;
       size++;
@@ -58,7 +59,8 @@ public class SuperArray {
   public String toStringDebug() {
     if (this.size == 0) {
       return "[]";
-    } else {
+    }
+    else {
       String result = "[";
       for (int i = 0; i < data.length; i++) {
         result += this.data[i];
@@ -91,7 +93,8 @@ public class SuperArray {
   public String  set(int index, String value) {
     if (index < 0 || index >= size) {
       throw new IndexOutOfBoundsException("ERROR: index out of bounds");
-    } else {
+    }
+    else {
       String str = data[index];
       data[index] = value;
       return str;
@@ -101,7 +104,7 @@ public class SuperArray {
   }
   // PHASE 2
   private void resize() {
-    String arr[] = new String[2*data.length+1];
+    String arr[] = new String[(2*data.length)+1];
     for (int x = 0; x < size(); x++) {
       arr[x] = data[x];
     }
@@ -121,12 +124,12 @@ public class SuperArray {
     // Returns true if this list contains the specified element.
   }
   public int indexOf(String target) {
-    for (int ind = 0; ind < size(); ind ++) {
-      if (data[ind].equals(target)) {
-        return ind; // first occurence from front
+    for (int index = 0; index < size(); index ++) {
+      if (data[index].equals(target)) {
+        return index; // first occurence from front
       }
     }
-    return -1; // if there is no occurence
+      return -1; // if there is no occurence
   }
   public int lastIndexOf(String target) {
     for (int ind = size() - 1; ind >= 0; ind --) {
@@ -136,19 +139,23 @@ public class SuperArray {
     }
     return -1; // if there is no occurence
   }
-  public void add(int index, String input) {
-    if (index < 0 || index > size()) throw new IndexOutOfBoundsException("ERROR: index out of bounds");
-    if (size == data.length - 1) resize();
-    String output[] = new String[data.length];
+  public void add(int index, String newVal) {
+    if (index < 0 || index > size()){
+      throw new IndexOutOfBoundsException("ERROR: index out of bounds");
+    }
+    if (size == data.length - 1){
+      resize();
+    }
+    String result[] = new String[data.length];
     for (int x = 0; x < index; x ++) {
-      output[x] = data[x];
-    }
-    output[index] = input;
+      result[x] = data[x];
+    } // copy before given index
+    result[index] = newVal; // add value at given index
     for (int x = index; x < size + 1; x ++) {
-      output[x + 1] = data[x];
-    }
+      result[x + 1] = data[x];
+    } // copy after given index
     size ++;
-    data = output;
+    data = result;
     /* All elements at the index or to the right, are shifted to the right to make space,
      then insert the specified element at the specified position in this list. Prints an error when index is out of range. */
   }
@@ -156,19 +163,19 @@ public class SuperArray {
     if (index < 0 || index >= size()) {
       throw new IndexOutOfBoundsException("ERROR: index out of bounds");
     }
-    String s = this.data[index];
+    String str = this.data[index];
     String[] result = new String[this.data.length];
-    for (int i = 0; i < this.size; i++) {
+    for (int i = 0; i < size; i++) {
       if (i < index) {
-        result[i] = this.data[i];
+        result[i] = data[i];
       }
       if (i >= index) {
-        result[i] = this.data[i + 1];
+        result[i] = data[i + 1];
       }
     }
     size--;
     data = result;
-    return s;
+    return str;
     /* Removes the element at the specified position in this list and shifts all subsequent elements to the left.
      Return the element removed.
      Prints an error when index is out of range.
@@ -178,7 +185,7 @@ public class SuperArray {
     boolean exists = false;
     for (int i = 0; i < this.size; i++) {
       if (this.contains(target)) {
-        this.remove(this.indexOf(target));
+        remove(this.indexOf(target));
         exists = true;
       }
     }
@@ -188,3 +195,4 @@ public class SuperArray {
      Upon removal, shift all the subsequent elements to the left. */
   }
 }
+// I used Joseph's driver and then Timothy and Tejas' Driver to test my code.
